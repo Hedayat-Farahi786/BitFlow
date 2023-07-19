@@ -8,44 +8,47 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const testimonials = [
     {
-        id: 1,
-        role: 'Chief Technology Officer',
-        name: 'Sarah Johnson',
-        message: "I am incredibly impressed with the software solutions provided by your company. The team's technical expertise, attention to detail, and dedication to delivering top-notch products are commendable. Our organization's efficiency has skyrocketed since implementing your software. Thank you for helping us stay ahead in the digital age!",
-        image: 'https://randomuser.me/api/portraits/women/1.jpg'
+      id: 1,
+      role: 'Chief Technology Officer',
+      name: 'Sarah Johnson',
+      message: "I am incredibly impressed with the software solutions provided by BitFlow. The team's technical expertise, attention to detail, and dedication to delivering top-notch products are commendable. Our organization's efficiency has skyrocketed since implementing your software. Thank you for helping us stay ahead in the digital age!",
+      image: 'https://randomuser.me/api/portraits/women/1.jpg',
+      business: 'TechNex Solutions GmbH' 
     },
     {
-        id: 2,
-        role: 'Lead Developer',
-        name: 'John Anderson',
-        message: "Working with your software development team was a game-changer for our projects. The seamless integration, robust architecture, and timely support have made our development process much smoother. Your team's problem-solving abilities are unmatched, and we are grateful for your partnership in achieving our goals.",
-        image: 'https://randomuser.me/api/portraits/men/2.jpg'
+      id: 2,
+      role: 'Lead Developer',
+      name: 'John Anderson',
+      message: "Working with BitFlow was a game-changer for our projects. The seamless integration, robust architecture, and timely support have made our development process much smoother. BitFlow's problem-solving abilities are unmatched, and we are grateful for your partnership in achieving our goals.",
+      image: 'https://randomuser.me/api/portraits/men/2.jpg',
+      business: 'SwiftServe Media AG' 
     },
     {
-        id: 3,
-        role: 'Product Manager',
-        name: 'Emily Roberts',
-        message: "I couldn't be happier with the software solutions your company delivered. From ideation to execution, your team displayed exceptional professionalism and creativity. The user-friendly interfaces and innovative features have received great feedback from our customers. Your software has elevated our products and strengthened our market position.",
-        image: 'https://randomuser.me/api/portraits/women/3.jpg'
+      id: 3,
+      role: 'Product Manager',
+      name: 'Emily Roberts',
+      message: "I couldn't be happier with the software solutions BitFlow delivered. From ideation to execution, your team displayed exceptional professionalism and creativity. The user-friendly interfaces and innovative features have received great feedback from our customers. Your software has elevated our products and strengthened our market position.",
+      image: 'https://randomuser.me/api/portraits/women/3.jpg',
+      business: 'EcoLiving Solutions GmbH'
     },
     {
-        id: 4,
-        role: 'IT Director',
-        name: 'Michael Smith',
-        message: "Your software development company exceeded our expectations in every aspect. The robust security measures and flawless performance of your applications have instilled confidence in our IT infrastructure. Your team's dedication to meeting deadlines and providing comprehensive support sets you apart from the competition. We are extremely satisfied with the results.",
-        image: 'https://randomuser.me/api/portraits/men/4.jpg'
+      id: 4,
+      role: 'IT Director',
+      name: 'Michael Smith',
+      message: "BitFlow's software development company exceeded our expectations in every aspect. The robust security measures and flawless performance of your applications have instilled confidence in our IT infrastructure. Your team's dedication to meeting deadlines and providing comprehensive support sets you apart from the competition. We are extremely satisfied with the results.",
+      image: 'https://randomuser.me/api/portraits/men/4.jpg',
+      business: 'GlobalFood Services AG' 
     },
     {
-        id: 5,
-        role: 'Head of Operations',
-        name: 'Jennifer Ramirez',
-        message: "I highly recommend your software development services to any company seeking cutting-edge solutions. Your team's ability to grasp our unique requirements and translate them into exceptional software products is remarkable. The collaboration was seamless, and the end results have had a significant positive impact on our business. Thank you for the outstanding work!",
-        image: 'https://randomuser.me/api/portraits/women/5.jpg'
+      id: 5,
+      role: 'Head of Operations',
+      name: 'Jennifer Ramirez',
+      message: "I highly recommend BitFlow's software development services to any company seeking cutting-edge solutions. Your team's ability to grasp our unique requirements and translate them into exceptional software products is remarkable. The collaboration was seamless, and the end results have had a significant positive impact on our business. Thank you for the outstanding work!",
+      image: 'https://randomuser.me/api/portraits/women/5.jpg',
+      business: 'GreenEnerco GmbH' 
     }
-
-
-];
-
+  ];
+  
 
 const Testimonial = ({ testimonial }) => {
     return (
@@ -66,7 +69,7 @@ const Testimonial = ({ testimonial }) => {
                     <img className='w-10 rounded-full shadow-lg' src={testimonial.image} alt={testimonial.name} />
                     <div>
                         <p className="font-semibold text-gray-800">{testimonial.name}</p>
-                        <p className="text-gray-500 text-xs">{testimonial.role}</p>
+                        <p className="text-gray-500 text-xs">{testimonial.role} <span className="text-primary">@</span> {testimonial.business}</p>
                     </div>
                 </div>
             </div>
@@ -100,8 +103,8 @@ const Testimonials = () => {
     };
 
     return (
-        <div className="mx-auto max-w-md md:max-w-5xl my-20" ref={ref}>
-            <h2 className="text-2xl md:text-4xl font-bold text-center mb-5 md:mb-16">Testimonials</h2>
+        <section id='testimonials' className="mx-auto max-w-md md:max-w-5xl pt-10 mt-10 mb-32" ref={ref}>
+            <h2 className="text-primary text-3xl md:text-4xl font-bold text-center mb-5 md:mb-16">Testimonials</h2>
             <Slider {...settings}>
                 {testimonials.map((testimonial) => (
                     <motion.div
@@ -114,7 +117,7 @@ const Testimonials = () => {
                     </motion.div>
                 ))}
             </Slider>
-        </div>
+        </section>
     );
 };
 

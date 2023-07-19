@@ -18,7 +18,7 @@ function App() {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <section id='home' className='w-full overflow-x-hidden'>
       <Navbar />
       <Landing />
       <Services />
@@ -27,7 +27,7 @@ function App() {
       <Testimonials/>
       <GetInTouch />
       <Footer />
-    </>
+    </section>
   );
 }
 
