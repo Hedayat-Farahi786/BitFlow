@@ -222,9 +222,9 @@ const GetInTouch = () => {
                   <p className="text-xs md:text-sm">
                     By sending this form I confirm that I have read and accept
                     the
-                    <span className="hover:underline text-primary ml-1">
+                    <a href="src/assets/privacy_policy.pdf" target="_blank" className="hover:underline text-primary ml-1 cursor-pointer">
                       Privacy Policy
-                    </span>
+                    </a>
                   </p>
                 </Label>
               </div>
