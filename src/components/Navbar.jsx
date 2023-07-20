@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <Nav fluid rounded className="py-5 w-11/12 mx-auto">
       <Nav.Brand href="#home">
-        <img alt="BitFlow Logo" className="h-8 sm:h-12" src={logo} />
+        <img alt="InnoVerse Logo" className="h-6 sm:h-8" src={logo} />
       </Nav.Brand>
       <div className="hidden md:flex md:order-2">
         <Dropdown inline label="EN">
@@ -24,6 +24,9 @@ export default function Navbar() {
         </Nav.Link>
         <Nav.Link className="text-base" href="#about">
           About
+        </Nav.Link>
+        <Nav.Link className="text-base" href="#portfolio">
+          Portfolio
         </Nav.Link>
         <Nav.Link className="text-base" href="#testimonials">
           Testimonials

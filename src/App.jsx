@@ -12,6 +12,7 @@ import About from './components/About';
 import Testimonials from './components/Testimonials';
 import GetInTouch from './components/GetInTouch';
 import Footer from './components/Footer';
+import Portfolio from './components/Portfolio';
 
 function App() {
   const count = useSelector((state) => state.counter);
@@ -24,6 +25,7 @@ function App() {
       <Services />
       {/* <Steps /> */}
       <About />
+      <Portfolio />
       <Testimonials/>
       <GetInTouch />
       <Footer />

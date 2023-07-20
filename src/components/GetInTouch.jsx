@@ -128,7 +128,7 @@ const GetInTouch = () => {
                   <TextInput
                     id="company"
                     {...register("company", { required: true })}
-                    placeholder="BitFlow..."
+                    placeholder="InnoVerse..."
                     shadow
                     type="text"
                     name="company"
@@ -222,7 +222,11 @@ const GetInTouch = () => {
                   <p className="text-xs md:text-sm">
                     By sending this form I confirm that I have read and accept
                     the
-                    <a href="src/assets/privacy_policy.pdf" target="_blank" className="hover:underline text-primary ml-1 cursor-pointer">
+                    <a
+                      href="src/assets/privacy_policy.pdf"
+                      target="_blank"
+                      className="hover:underline text-primary ml-1 cursor-pointer"
+                    >
                       Privacy Policy
                     </a>
                   </p>

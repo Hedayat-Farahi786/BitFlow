@@ -66,7 +66,7 @@ const About = () => {
           >
             <h2 className="text-primary text-3xl font-bold mb-8">About Us</h2>
             <p className="text-gray-700 mb-6 text-sm">
-              BitFlow is a Munich-based software development company that has
+              InnoVerse is a Munich-based software development company that has
               been at the forefront of innovation since its establishment in
               2021. With a team of highly skilled and dedicated professionals,
               we specialize in creating cutting-edge solutions that cater to the
@@ -80,12 +80,12 @@ const About = () => {
               challenges effectively.
             </p>
             <p className="text-gray-700 mb-6 text-sm">
-              At BitFlow, we are committed to excellence, and our goal is to
+              At InnoVerse, we are committed to excellence, and our goal is to
               exceed expectations with every project we undertake. With our
               expertise in the latest technologies and a deep understanding of
               industry trends, we are your trusted partner in achieving digital
               success. Let's unlock the full potential of technology together
-              with BitFlow.
+              with InnoVerse.
             </p>
           </motion.div>
         </div>
