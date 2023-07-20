@@ -16,6 +16,7 @@ import { BiErrorCircle } from "react-icons/bi";
 import { BsCheck2Circle } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
+import { useSelector } from "react-redux";
 
 const GetInTouch = () => {
   const [loading, setLoading] = useState(false);
@@ -101,6 +102,9 @@ const GetInTouch = () => {
       });
   };
 
+  const language = useSelector((state) => state.language.language);
+  const languageData = useSelector((state) => state.language.data[language]);
+
   return (
     <section id="getInTouch" className="w-11/12 mx-auto md:py-20 mb-32">
       <div className="container mx-auto px-4">
@@ -113,8 +117,15 @@ const GetInTouch = () => {
             variants={imageVariants}
           >
             <h2 className="text-center md:text-left text-3xl md:text-3xl font-bold mb-8">
-              Get In <span className="text-primary">Touch</span> & Start Your
-              Project <span className="text-primary">Today</span>!
+              {languageData.getInTouchGetIn}{" "}
+              <span className="text-primary">
+                {languageData.getInTouchTouch}
+              </span>{" "}
+              {languageData.getInTouchStartProject}{" "}
+              <span className="text-primary">
+                {languageData.getInTouchToday}
+              </span>
+              !
             </h2>
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -123,7 +134,7 @@ const GetInTouch = () => {
               <div className="flex flex-col md:flex-row space-x-0 md:space-x-3 space-y-4 md:space-y-0 w-full">
                 <div className="w-full">
                   <div className="mb-2 block">
-                    <Label htmlFor="company" value="Company" />
+                    <Label htmlFor="company" value={languageData.company} />
                   </div>
                   <TextInput
                     id="company"
@@ -134,14 +145,18 @@ const GetInTouch = () => {
                     name="company"
                     color={errors.company ? "failure" : ""}
                     helperText={
-                      errors.company && <span>Company is required!</span>
+                      errors.company && (
+                        <span>
+                          {languageData.company} {languageData.isRequired}
+                        </span>
+                      )
                     }
                     className="w-full"
                   />
                 </div>
                 <div className="w-full">
                   <div className="mb-2 block">
-                    <Label htmlFor="name" value="Your Name" />
+                    <Label htmlFor="name" value={languageData.name} />
                   </div>
                   <TextInput
                     id="name"
@@ -151,7 +166,11 @@ const GetInTouch = () => {
                     type="text"
                     color={errors.name ? "failure" : ""}
                     helperText={
-                      errors.name && <span>Your Name is required!</span>
+                      errors.name && (
+                        <span>
+                          {languageData.name} {languageData.isRequired}
+                        </span>
+                      )
                     }
                     name="name"
                     className="w-full"
@@ -161,7 +180,7 @@ const GetInTouch = () => {
               <div className="flex flex-col md:flex-row space-x-0 md:space-x-3 space-y-4 md:space-y-0 w-full">
                 <div className="w-full">
                   <div className="mb-2 block">
-                    <Label htmlFor="phone" value="Phone Number" />
+                    <Label htmlFor="phone" value={languageData.phone} />
                   </div>
                   <TextInput
                     id="phone"
@@ -171,7 +190,11 @@ const GetInTouch = () => {
                     type="tel"
                     color={errors.phone ? "failure" : ""}
                     helperText={
-                      errors.phone && <span>Phone Number is required!</span>
+                      errors.phone && (
+                        <span>
+                          {languageData.phone} {languageData.isRequired}
+                        </span>
+                      )
                     }
                     name="phone"
                     className="w-full"
@@ -179,7 +202,7 @@ const GetInTouch = () => {
                 </div>
                 <div className="w-full">
                   <div className="mb-2 block">
-                    <Label htmlFor="email" value="Email" />
+                    <Label htmlFor="email" value={languageData.email} />
                   </div>
                   <TextInput
                     id="email"
@@ -188,7 +211,13 @@ const GetInTouch = () => {
                     shadow
                     type="email"
                     color={errors.email ? "failure" : ""}
-                    helperText={errors.email && <span>Email is required!</span>}
+                    helperText={
+                      errors.email && (
+                        <span>
+                          {languageData.email} {languageData.isRequired}
+                        </span>
+                      )
+                    }
                     name="email"
                     className="w-full"
                   />
@@ -196,7 +225,10 @@ const GetInTouch = () => {
               </div>
               <div>
                 <div className="mb-2 block">
-                  <Label htmlFor="projectDetails" value="Project Details" />
+                  <Label
+                    htmlFor="projectDetails"
+                    value={languageData.projectDetails}
+                  />
                 </div>
                 <Textarea
                   id="projectDetails"
@@ -206,7 +238,9 @@ const GetInTouch = () => {
                   color={errors.projectDetails ? "failure" : ""}
                   helperText={
                     errors.projectDetails && (
-                      <span>Project Details is required!</span>
+                      <span>
+                        {languageData.projectDetails} {languageData.isRequired}
+                      </span>
                     )
                   }
                   name="projectDetails"
@@ -220,21 +254,20 @@ const GetInTouch = () => {
                 />
                 <Label className="flex" htmlFor="agree">
                   <p className="text-xs md:text-sm">
-                    By sending this form I confirm that I have read and accept
-                    the
+                    {languageData.agreementText}
                     <a
                       href="src/assets/privacy_policy.pdf"
                       target="_blank"
                       className="hover:underline text-primary ml-1 cursor-pointer"
                     >
-                      Privacy Policy
+                      {languageData.privacyPolicy}
                     </a>
                   </p>
                 </Label>
               </div>
               {errors.agree && (
                 <span className="text-sm text-red-600">
-                  Agreement is required!
+                  {languageData.agreement} {languageData.isRequired}
                 </span>
               )}
               <Button
@@ -245,7 +278,7 @@ const GetInTouch = () => {
                 {loading && (
                   <AiOutlineLoading3Quarters className="mr-3 h-4 w-4 animate-spin" />
                 )}
-                <p>Get Consultation</p>
+                <p>{languageData.getConsultation}</p>
               </Button>
             </form>
           </motion.div>
@@ -273,10 +306,9 @@ const GetInTouch = () => {
         <Modal.Body>
           <div className="text-center">
             <BsCheck2Circle className="mx-auto mb-4 h-14 w-14 text-primary" />
-            <h3 className="mb-5 text-2xl font-bold">Thank you!</h3>
+            <h3 className="mb-5 text-2xl font-bold">{languageData.thankYou}</h3>
             <h3 className="mb-10 text-base font-normal text-gray-600 dark:text-gray-400">
-              We received your message. Our team will get in touch with you
-              shortly!
+              {languageData.successMessage}
             </h3>
             <div className="flex justify-center gap-4">
               <Button
@@ -286,7 +318,7 @@ const GetInTouch = () => {
                   window.location = "#home";
                 }}
               >
-                Close
+                {languageData.close}
               </Button>
             </div>
           </div>
@@ -302,17 +334,16 @@ const GetInTouch = () => {
         <Modal.Body>
           <div className="text-center">
             <BiErrorCircle className="mx-auto mb-4 h-14 w-14 text-red-600" />
-            <h3 className="mb-5 text-2xl font-bold">Oops!</h3>
+            <h3 className="mb-5 text-2xl font-bold">{languageData.oops}</h3>
             <h3 className="mb-10 text-base font-normal text-gray-600 dark:text-gray-400">
-              There was something worng while sending the data. Please try again
-              later!
+              {languageData.errorMessage}
             </h3>
             <div className="flex justify-center gap-4">
               <Button
                 className="px-6"
                 onClick={() => props.setOpenModal(undefined)}
               >
-                Close
+                {languageData.close}
               </Button>
             </div>
           </div>

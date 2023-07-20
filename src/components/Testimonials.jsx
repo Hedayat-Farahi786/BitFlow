@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useSelector } from "react-redux";
 
 const testimonials = [
   {
@@ -90,6 +91,11 @@ const Testimonial = ({ testimonial }) => {
 };
 
 const Testimonials = () => {
+
+  const language = useSelector((state) => state.language.language);
+  const languageData = useSelector((state) => state.language.data[language]);
+
+
   const [isVisible, setIsVisible] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -120,7 +126,7 @@ const Testimonials = () => {
       ref={ref}
     >
       <h2 className="text-primary text-3xl md:text-4xl font-bold text-center mb-5 md:mb-16">
-        Testimonials
+        {languageData.testimonials}
       </h2>
       <Slider {...settings}>
         {testimonials.map((testimonial) => (

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import aboutImg from "../assets/about.png";
+import { useSelector } from "react-redux";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -44,6 +45,10 @@ const About = () => {
     },
   };
 
+
+  const language = useSelector((state) => state.language.language);
+  const languageData = useSelector((state) => state.language.data[language]);
+
   return (
     <section id="about" className="w-11/12 mx-auto md:py-20 pt-12">
       <div className="container mx-auto px-4">
@@ -64,28 +69,15 @@ const About = () => {
             animate={isVisible ? "visible" : "hidden"}
             variants={textVariants}
           >
-            <h2 className="text-primary text-3xl font-bold mb-8">About Us</h2>
+            <h2 className="text-primary text-3xl font-bold mb-8">{languageData.about}</h2>
             <p className="text-gray-700 mb-6 text-sm">
-              InnoVerse is a Munich-based software development company that has
-              been at the forefront of innovation since its establishment in
-              2021. With a team of highly skilled and dedicated professionals,
-              we specialize in creating cutting-edge solutions that cater to the
-              diverse needs of businesses.
+              {languageData.aboutUsText1}
             </p>
             <p className="text-gray-700 mb-6 text-sm">
-              As a customer-centric company, we prioritize open and transparent
-              communication throughout the development process. Our team works
-              collaboratively with clients to understand their unique
-              requirements and deliver tailor-made solutions that address their
-              challenges effectively.
+              {languageData.aboutUsText2}
             </p>
             <p className="text-gray-700 mb-6 text-sm">
-              At InnoVerse, we are committed to excellence, and our goal is to
-              exceed expectations with every project we undertake. With our
-              expertise in the latest technologies and a deep understanding of
-              industry trends, we are your trusted partner in achieving digital
-              success. Let's unlock the full potential of technology together
-              with InnoVerse.
+              {languageData.aboutUsText3}
             </p>
           </motion.div>
         </div>

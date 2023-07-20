@@ -1,45 +1,45 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useSelector } from "react-redux";
 
 const servicesData = [
   {
-    title: "Web Development",
-    description:
-      "We create beautiful and responsive websites tailored to your needs.",
+    title: "webDev",
+    description: "webDevText",
     icon: "fas fa-globe",
   },
   {
-    title: "Mobile App Development",
-    description:
-      "We build innovative mobile apps for both Android and iOS platforms.",
+    title: "mobileAppDev",
+    description: "mobileAppDevText",
     icon: "fas fa-mobile-alt",
   },
   {
-    title: "UI/UX Design",
-    description: "Our designers create intuitive and stunning user interfaces.",
+    title: "design",
+    description: "designText",
     icon: "fas fa-paint-brush",
   },
   {
-    title: "Custom Software Development",
-    description:
-      "We build tailor-made software solutions to address your unique challenges.",
+    title: "customSoftwareDev",
+    description: "customSoftwareDevText",
     icon: "fas fa-cube",
   },
   {
-    title: "Backend Development",
-    description:
-      "We architect and develop robust server-side solutions for your applications.",
+    title: "backendDev",
+    description: "backendDevText",
     icon: "fas fa-server",
   },
   {
-    title: "Quality Assurance",
-    description:
-      "We perform rigorous testing to ensure your software is bug-free and reliable.",
+    title: "qualityAssurance",
+    description: "qualityAssuranceText",
     icon: "fas fa-check-double",
   },
 ];
 const ServiceCard = ({ title, description, icon }) => {
+  
+  const language = useSelector((state) => state.language.language);
+  const languageData = useSelector((state) => state.language.data[language]);
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -51,8 +51,8 @@ const ServiceCard = ({ title, description, icon }) => {
         <i className={`icon ${icon}`}></i>
       </div>
       <div>
-        <h3 className="text-base md:text-xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-700 text-xs md:text-sm">{description}</p>
+        <h3 className="text-base md:text-xl font-bold mb-2">{languageData[title]}</h3>
+        <p className="text-gray-700 text-xs md:text-sm">{languageData[description]}</p>
       </div>
     </motion.div>
   );
@@ -71,15 +71,18 @@ const Services = () => {
     }
   }, [inView]);
 
+  const language = useSelector((state) => state.language.language);
+  const languageData = useSelector((state) => state.language.data[language]);
+
   return (
     <section
       id="services"
-      className="md:py-10 pt-5 mb-28 md:mb-20 w-11/12 mx-auto"
+      className="md:py-10 mt-5 mb-28 md:mb-20 w-11/12 mx-auto"
       ref={ref} // Attach the ref to the top-level element of Services
     >
       <div className="container mx-auto px-4">
         <h2 className="text-primary text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16">
-          Our Services
+          {languageData.ourServices}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {servicesData.map((service, index) => (

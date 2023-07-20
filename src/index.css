@@ -28,3 +28,17 @@ html {
 .border-primary{
   border-color: #0E7490;
 }
+
+.active{
+  color: #0E7490;
+  font-weight: 600;
+}
+
+.mobileActive{
+  background-color: #0E7490;
+  color: white;
+}
+
+.navBorder{
+  box-shadow: none;
+}

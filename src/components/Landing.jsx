@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 
 import landingImage from "../assets/landing.png";
 import { Button } from "flowbite-react";
+import { useSelector } from "react-redux";
+import Navbar from "./Navbar";
 
 export const Landing = () => {
   const fadeInAnimation = {
@@ -19,8 +21,13 @@ export const Landing = () => {
     visible: { x: 0 },
   };
 
+  const language = useSelector((state) => state.language.language);
+  const languageData = useSelector((state) => state.language.data[language]);
+
   return (
-    <section className="min-h-screen flex items-start justify-center w-11/12 mx-auto">
+    <section id="home" className="pt-20">
+      <Navbar />
+       <div className="min-h-screen flex items-start justify-center w-11/12 mx-auto">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         {/* Left side with text and CTA */}
         <motion.div
@@ -35,8 +42,8 @@ export const Landing = () => {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeInOut" }}
             className="text-5xl md:text-6xl font-bold mb-6 leading-tight"
           >
-            Transforming <span className="text-primary">Visions</span> into{" "}
-            <span className="text-primary">Reality</span>.
+            {languageData.landingTransforming} <span className="text-primary">{languageData.landingVisions}</span> {languageData.landingInto}{" "}
+            <span className="text-primary">{languageData.landingReality}</span>
           </motion.h1>
 
           <motion.p
@@ -44,16 +51,14 @@ export const Landing = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
             className="text-gray-600 mb-6 text-sm md:text-base"
           >
-            We are your trusted software development company, transforming ideas
-            into cutting-edge solutions to propel your business to new heights
-            in the digital realm.
+            {languageData.landingText}
           </motion.p>
           <motion.div
             variants={slideInLeftAnimation}
             transition={{ duration: 0.9, delay: 0.2, ease: "easeInOut" }}
           >
             <a href="#getInTouch">
-              <Button>Get Started</Button>
+              <Button>{languageData.getStarted}</Button>
             </a>
           </motion.div>
         </motion.div>
@@ -73,6 +78,7 @@ export const Landing = () => {
           />
         </motion.div>
       </div>
+    </div>
     </section>
   );
 };

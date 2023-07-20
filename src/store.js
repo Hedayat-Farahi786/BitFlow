@@ -1,10 +1,11 @@
-// src/store.js
+// src/store/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './features/counterSlice';
+import languageReducer from './features/languageSlice';
 
-export default configureStore({
+const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    // Add other slices here if you have them
+    language: languageReducer,
   },
 });
+
+export default store;

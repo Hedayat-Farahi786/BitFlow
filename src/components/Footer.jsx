@@ -3,25 +3,32 @@
 import { Footer as FooterComponent } from "flowbite-react";
 import logo from "../assets/logo.png";
 import { BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 export default function Footer() {
+
+
+  const language = useSelector((state) => state.language.language);
+  const languageData = useSelector((state) => state.language.data[language]);
+
+
   return (
     <FooterComponent container>
       <div className="w-11/12 mx-auto text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <FooterComponent.Brand alt="Brand Logo" href="#home" src={logo} />
           <FooterComponent.LinkGroup className="flex text-xs md:text-sm mt-10 md:mt-0">
-            <FooterComponent.Link className="mr-3 mb-2" href="#home">Home</FooterComponent.Link>
+            <FooterComponent.Link className="mr-3 mb-2" href="#home">{languageData.home}</FooterComponent.Link>
             <FooterComponent.Link className="mr-3 mb-2" href="#services">
               Services
             </FooterComponent.Link>
-            <FooterComponent.Link className="mr-3 mb-2" href="#about">About</FooterComponent.Link>
-            <FooterComponent.Link className="mr-3 mb-2" href="#portfolio">Portfolio</FooterComponent.Link>
+            <FooterComponent.Link className="mr-3 mb-2" href="#about">{languageData.about}</FooterComponent.Link>
+            <FooterComponent.Link className="mr-3 mb-2" href="#portfolio">{languageData.portfolio}</FooterComponent.Link>
             <FooterComponent.Link className="mr-3 mb-2" href="#testimonials">
-              Testimonials
+              {languageData.testimonials}
             </FooterComponent.Link>
             <FooterComponent.Link className="mr-3 mb-2" href="#getInTouch">
-              Contact
+              {languageData.contact}
             </FooterComponent.Link>
           </FooterComponent.LinkGroup>
         </div>
