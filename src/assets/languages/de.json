@@ -49,5 +49,12 @@
 "successMessage": "Wir haben Ihre Nachricht erhalten. Unser Team wird sich in Kürze mit Ihnen in Verbindung setzen!",
 "oops": "Hoppla!",
 "errorMessage": "Beim Senden der Daten ist etwas schief gelaufen. Bitte versuchen Sie es später erneut!",
-"close": "Schließen"
+"close": "Schließen",
+"howToStart": "Wie starten",
+"howTo": "So starten Sie ein Projekt mit uns",
+"step": "Schritt",
+"contactUs": "Kontaktieren Sie uns",
+"requirements": "Anforderungen",
+"approval": "Genehmigung",
+"projectLaunch": "Projektstart"
 }

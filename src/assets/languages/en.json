@@ -49,5 +49,12 @@
     "successMessage": "We received your message. Our team will get in touch with you shortly!",
     "oops": "Oops!",
     "errorMessage": "There was something worng while sending the data. Please try again later!",
-    "close": "Close"
+    "close": "Close",
+    "howToStart": "How to Start",
+    "howTo": "How to Start a Project With Us",
+    "step": "Step",
+    "contactUs": "Contact Us",
+    "requirements": "Requirements",
+    "approval": "Approval",
+    "projectLaunch": "Project Launch"
 }

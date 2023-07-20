@@ -7,6 +7,7 @@ import Testimonials from './components/Testimonials';
 import GetInTouch from './components/GetInTouch';
 import Footer from './components/Footer';
 import Portfolio from './components/Portfolio';
+import StartProjectSteps from './components/Steps';
 
 function App() {
 
@@ -14,10 +15,10 @@ function App() {
     <div className='w-full overflow-x-hidden'>
       <Landing />
       <Services />
-      {/* <Steps /> */}
       <About />
       <Portfolio />
       <Testimonials/>
+      <StartProjectSteps />
       <GetInTouch />
       <Footer />
     </div>

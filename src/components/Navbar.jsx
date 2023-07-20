@@ -36,6 +36,7 @@ export default function Navbar() {
         "about",
         "portfolio",
         "testimonials",
+        "steps",
         "getInTouch",
       ];
       for (const section of sections) {
@@ -179,6 +180,20 @@ export default function Navbar() {
                   }`}
                 >
                   {languageData.testimonials}
+                </Nav.Link>
+                <Nav.Link
+                  activeClass="mobileActive"
+                  href="#steps"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  onClick={toggleMenu}
+                  className={`text-base px-4 ${
+                    activeSection === "steps" ? "mobileActive" : ""
+                  }`}
+                >
+                  {languageData.howToStart}
                 </Nav.Link>
                 <Nav.Link
                   activeClass="mobileActive"
