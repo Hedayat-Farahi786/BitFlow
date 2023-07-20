@@ -71,7 +71,7 @@ const About = () => {
             <h2 className="text-primary text-3xl font-bold mb-8">
               {languageData.about}
             </h2>
-            <p className="text-gray-700 mb-6 text-sm md:text-lg">
+            <p className="text-gray-700 mb-6 text-base md:text-lg">
               {languageData.aboutUsText.split(" ").map((word, index) => (
                 <span
                   key={index}
