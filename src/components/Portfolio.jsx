@@ -3,21 +3,22 @@ import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useSelector } from "react-redux";
-
+import partyTortenImg from "../assets/partyTorten.png";
+import snapSellImg from "../assets/snapSell.png;
 
 const projects = [
   {
     id: 1,
     title: "Party Torten",
     description: "partyTortenInfo",
-    imageUrl: "/src/assets/partyTorten.png",
+    imageUrl: partyTortenImg,
     websiteUrl: "https://partytorten.vercel.app/",
   },
   {
     id: 2,
     title: "Snap Sell",
     description: "snapSellInfo",
-    imageUrl: "/src/assets/snapSell.png",
+    imageUrl: snapSellImg,
     websiteUrl: "https://snap-sell.vercel.app/",
   },
   // Add more projects here as needed
