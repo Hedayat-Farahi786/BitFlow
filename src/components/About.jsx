@@ -45,14 +45,13 @@ const About = () => {
     },
   };
 
-
   const language = useSelector((state) => state.language.language);
   const languageData = useSelector((state) => state.language.data[language]);
 
   return (
-    <section id="about" className="w-11/12 mx-auto md:py-20 pt-12">
+    <section id="about" className="w-11/12 mx-auto md:py-20 pt-12 mb-20">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:space-x-20 items-center">
+        <div className="flex flex-col md:flex-row md:space-x-20 items-center md:items-start">
           <motion.div
             className="md:w-1/2 mb-8 md:mb-0"
             ref={ref}
@@ -69,15 +68,18 @@ const About = () => {
             animate={isVisible ? "visible" : "hidden"}
             variants={textVariants}
           >
-            <h2 className="text-primary text-3xl font-bold mb-8">{languageData.about}</h2>
-            <p className="text-gray-700 mb-6 text-sm">
-              {languageData.aboutUsText1}
-            </p>
-            <p className="text-gray-700 mb-6 text-sm">
-              {languageData.aboutUsText2}
-            </p>
-            <p className="text-gray-700 mb-6 text-sm">
-              {languageData.aboutUsText3}
+            <h2 className="text-primary text-3xl font-bold mb-8">
+              {languageData.about}
+            </h2>
+            <p className="text-gray-700 mb-6 text-base md:text-lg">
+              {languageData.aboutUsText.split(" ").map((word, index) => (
+                <span
+                  key={index}
+                  style={{ color: Math.random() < 0.3 && word.length > 3 && !word.endsWith(".") ? "#0E7490" : "inherit" }}
+                >
+                  {word}{" "}
+                </span>
+              ))}
             </p>
           </motion.div>
         </div>

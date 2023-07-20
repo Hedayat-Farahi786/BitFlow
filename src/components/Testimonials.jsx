@@ -125,7 +125,7 @@ const Testimonials = () => {
       className="mx-auto max-w-md md:max-w-5xl pt-10 mt-10 mb-32"
       ref={ref}
     >
-      <h2 className="text-primary text-3xl md:text-4xl font-bold text-center mb-5 md:mb-16">
+      <h2 className="text-primary text-3xl md:text-4xl font-bold text-center mb-5 md:mb-16 title">
         {languageData.testimonials}
       </h2>
       <Slider {...settings}>

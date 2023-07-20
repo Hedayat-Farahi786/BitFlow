@@ -79,7 +79,7 @@ const Project = ({ project }) => {
     return (
       <section id="portfolio" className="bg-white py-10 w-11/12 mx-auto" ref={ref}>
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl text-primary text-center font-bold mb-10">{languageData.ourPortfolio}</h2>
+          <h2 className="text-3xl text-primary text-center font-bold mb-14 title">{languageData.ourPortfolio}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <motion.div key={project.id} custom={index} animate={isVisible ? 'visible' : 'hidden'}>
