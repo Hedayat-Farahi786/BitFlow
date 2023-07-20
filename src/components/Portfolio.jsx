@@ -9,14 +9,14 @@ const projects = [
     id: 1,
     title: "Party Torten",
     description: "partyTortenInfo",
-    imageUrl: "",
+    imageUrl: "https://i.imgur.com/1MZnqCk.png",
     websiteUrl: "https://partytorten.vercel.app/",
   },
   {
     id: 2,
     title: "Snap Sell",
     description: "snapSellInfo",
-    imageUrl: "",
+    imageUrl: "https://i.imgur.com/c8ZmfHR.png",
     websiteUrl: "https://snap-sell.vercel.app/",
   },
   // Add more projects here as needed
