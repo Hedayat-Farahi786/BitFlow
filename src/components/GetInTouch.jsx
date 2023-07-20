@@ -251,6 +251,7 @@ const GetInTouch = () => {
                 <Checkbox
                   {...register("agree", { required: true })}
                   id="agree"
+                  color={errors.agree ? "failure" : ""}
                 />
                 <Label className="flex" htmlFor="agree">
                   <p className="text-xs md:text-sm">
