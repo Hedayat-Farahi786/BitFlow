@@ -1,6 +1,6 @@
 // src/components/LoadingPage.js
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from "../assets/logo.png"
 import { useSelector } from 'react-redux';
 
@@ -8,14 +8,22 @@ const LoadingPage = ({ setLoadingComplete }) => {
 
     const language = useSelector((state) => state.language.language);
     const languageData = useSelector((state) => state.language.data[language]);
-  
-
+    const [isImageLoaded, setIsImageLoaded] = useState(false);
 
     useEffect(() => {
+      // Preload the image
+      const image = new Image();
+      image.src = logo;
+  
+      image.onload = () => {
+        // Image is loaded, show the loading page
+        setIsImageLoaded(true);
+      };
+  
       // Simulate some loading process
       setTimeout(() => {
         setLoadingComplete(true);
-      }, 1500); // Adjust the duration as needed
+      }, 2000); // Adjust the duration as needed
     }, [setLoadingComplete]);
   return (
     <div className="loading-container">
