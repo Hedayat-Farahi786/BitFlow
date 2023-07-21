@@ -43,7 +43,7 @@ export const Landing = () => {
             className="text-5xl md:text-6xl font-bold mb-6 leading-tight"
           >
             {languageData.landingTransforming} <span className="text-primary">{languageData.landingVisions}</span> {languageData.landingInto}{" "}
-            <span className="text-primary">{languageData.landingReality}</span>
+            <span className="text-primary">{languageData.landingReality}.</span>
           </motion.h1>
 
           <motion.p
