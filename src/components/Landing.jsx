@@ -25,7 +25,7 @@ export const Landing = () => {
   const languageData = useSelector((state) => state.language.data[language]);
 
   return (
-    <section id="home" className="pt-20">
+    <section id="home" className="pt-30">
       <Navbar />
        <div className="min-h-screen flex items-start justify-center w-11/12 mx-auto">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
